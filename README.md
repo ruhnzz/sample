@@ -69,3 +69,26 @@ i am role commands:
 4-> aws s3api create-bucket --bucket 59e-bucket1mumbai --region ap-south-1 --create-bucket-configuration LocationConstraint=ap-south-1
 5-> aws s3 ls
 
+
+
+lambda chnage names at:
+dynamoTable = dynamodb.Table('newtable')
+dynamoTable = dynamodb.Table('YourDynamoDBTableName')
+{
+  "Effect": "Allow",
+  "Action": [
+    "s3:GetObject",
+    "s3:HeadObject"
+  ],
+  "Resource": "arn:aws:s3:::your-bucket-name/*"   =>here
+},
+{
+  "Effect": "Allow",
+  "Action": [
+    "dynamodb:PutItem",
+    "dynamodb:DescribeTable"
+  ],
+  "Resource": "arn:aws:dynamodb:<region>:<account-id>:table/YourDynamoDBTableName"  =>here
+}
+
+
