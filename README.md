@@ -75,3 +75,15 @@ lambda chnage names at:
 dynamoTable = dynamodb.Table('YourDynamoDBTableName')
 
 
+vpc bootstarp script
+
+#!/bin/bash
+sudo su
+yum update -y
+yum install httpd -y
+cd /var/www/html
+echo "22BD1A059F" > index.html
+service httpd start
+chkconfig httpd on
+
+
