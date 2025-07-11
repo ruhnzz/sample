@@ -55,7 +55,7 @@ export const handler = async (event, context) => {
 
 
 in msg body: 
-{"key1":"hello:,
+{"key1":"hello":,
 "key2": "9e",
 "key3" : "m"}
 
@@ -82,7 +82,7 @@ sudo su
 yum update -y
 yum install httpd -y
 cd /var/www/html
-echo "22BD1A059F" > index.html
+echo "22BD1A059E" > index.html
 service httpd start
 chkconfig httpd on
 
