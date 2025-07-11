@@ -72,23 +72,6 @@ i am role commands:
 
 
 lambda chnage names at:
-dynamoTable = dynamodb.Table('newtable')
 dynamoTable = dynamodb.Table('YourDynamoDBTableName')
-{
-  "Effect": "Allow",
-  "Action": [
-    "s3:GetObject",
-    "s3:HeadObject"
-  ],
-  "Resource": "arn:aws:s3:::your-bucket-name/*"   =>here
-},
-{
-  "Effect": "Allow",
-  "Action": [
-    "dynamodb:PutItem",
-    "dynamodb:DescribeTable"
-  ],
-  "Resource": "arn:aws:dynamodb:<region>:<account-id>:table/YourDynamoDBTableName"  =>here
-}
 
 
