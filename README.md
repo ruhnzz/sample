@@ -71,7 +71,7 @@ i am role commands:
 
 
 
-lambda chnage names at:
+lambda chnage names at in lambda exp:
 dynamoTable = dynamodb.Table('YourDynamoDBTableName')
 
 
