@@ -114,4 +114,21 @@ ls yo get index.html
    -> exit
 3.copy ipv4  if ot owrks try wuth :80
 
+CRR
+1.login into your aws academy account
+2.start aws lab and go all services->storage->S3
+3.click on create bucket
+5. create two buckets source bucket in North Virginia and destination bucket in Oregano 
+4.give the globally unique name to buckets enable the versioning for both buckets and rest everything be at default click on create bucket
+5. select the source bucket go to management tab scroll down to replication rules and click on create replication rule
+6. enter replication rule name
+7. under source select apply to all objects in the bucket 
+8. under destination click on s3 browse and select the destination bucket and click on choose path
+9. Under IAM role choose LabRole
+10. under additional replication options check Replication Time control click on save 
+11. then check Yes and click on submit
+12. you will led to tab called create batch operations job
+13. under completion report select all tasks and click on browse s3 select destination bucket
+14. under Permissions select IAM role as LabRole click on save
+15. now upload object in source bucket then go to destination bucket you find the object which was uploaded in source bucket
 
