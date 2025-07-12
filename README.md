@@ -87,3 +87,31 @@ service httpd start
 chkconfig httpd on
 
 
+pem putty commands
+12. enter following commands:
+->sudo yum update -y
+->sudo yum install httpd -y
+->sudo systemctl status http 
+
+->sudo systemctl start httpd
+->sudo systemctl enable httpd
+13. go back to instace select it copy public ipv4 addess you can see the msg as it works!
+
+nginx commands:
+EXP-3: EC2 with Ubuntu                     => try again with pem
+1. everything is same just choose AMI as ubuntu
+2.Run following commands:
+->sudo apt-get update -y
+->sudo apt install docker.io
+->sudo docker pull nginx
+->sudo docker run -d -p 80:80 --name mynginx nginx    ->ones check it works or not
+-> sudo docker exec -it mynginx bash
+cd /usr/share/nginx/html
+ls yo get index.html
+   -> apt update
+   -> apt install nano
+   -> nano index.html change h1 content ctrl+O and ctrl+X
+   -> exit
+3.copy ipv4  if ot owrks try wuth :80
+
+
