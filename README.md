@@ -132,3 +132,10 @@ CRR
 14. under Permissions select IAM role as LabRole click on save
 15. now upload object in source bucket then go to destination bucket you find the object which was uploaded in source bucket
 
+VPC:
+create VPC => 10.0.0.0/16
+public subnet => select vpc , 10.0.1.0/24
+pvt subnet => select vpc 10.0.2.0/24
+internet gateway => create and attach to VPC
+route table-1 => create , edit route add IGW 
+
