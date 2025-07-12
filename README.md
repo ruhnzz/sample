@@ -139,3 +139,122 @@ pvt subnet => select vpc 10.0.2.0/24
 internet gateway => create and attach to VPC
 route table-1 => create , edit route add IGW 
 
+ebs
+
+EXP-1:       
+
+1.create instance with instance type as t2.nano
+
+volume creation
+2.go to volumes click on create volumes
+3. create volume wuth size:20gb and avialbility zone same has instance
+
+Volume attach
+4.select the volume created click actions->attach volume
+5.select the created instance and device name as /dev/sdf click attach volume   
+
+mount the volume and resize
+6.connect to ec2 instance and run following commands
+->sudo su
+->lsblk =>list of attached disks
+-> fdisk -l
+-> lsblk -fs (xvdb)
+->fdisk /dev/xvdf
+-> m n p 1 2times enter then w
+-> partprobe
+-> lsblk -fs
+->mkfs.xfs /dev/xvdf1
+->lsblk -fs
+-> mkdir /mnt/cse9e
+->mount /dev/xvdf1 /mnt/cse9e
+->lsblk -fs
+->cd /mnt/cse9e
+->touch file {1..10}
+-> ls -l
+****************************
+->sudo yum install git -y
+go to git hub and get url of java maven project
+-> git clone link
+->ls
+*****************************8
+-> vi /etc/fstab
+ I enter /dev/xvdb1 /mnt/cse9e xfs default 0 0 enter esc :wq
+   
+->cd /mnt/cse9e
+->ls
+
+Unmount:
+->umount /mnt/cse
+->cd /mnt/cse9e
+->ls
+
+again vi /etc/fstab I remove esc :wq
+
+7.select volume go to action->detach volume
+
+Now create a new instance and attach this volume to that instance
+->sudo su
+->lsblk -> dec/xvdf or b
+->lsblk -fs
+-.mkdir /mnt/cse
+->mount /dev/xvdf1 /mnt/cse
+->cd /mnt/cse
+->ls
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                 
+                                                                         WEEK -5
+
+exp-1 Snapshot:
+
+1. create a ec2 instance ebs in N.virginia
+2. create a volume with 20gb in availability zone of ebs 
+3.click on create volume
+4.select created volume and actions->attach volume
+5. select the instance ebs and device name as /dev/xvdf
+6. go instance and get connected execute following commands
+->sudo su
+->lsblk
+->mkfs.xfs /dev/xvdf 
+->mkdir /mnt/cse
+->mount /dev/xvdf /mnt/cse
+->cd /mnt/cse
+->yum install git -y
+-> git clone https://github.com/ruhnzz/javaMavenProject.git
+->ls
+
+create sanpshot
+7.go to volumes select the volume we created actions->create snapshot
+8.give name to snapshot click on create snapshot
+9.go to snapshots you can see snapshot is created
+
+create instance in Oregano 
+10.create instance as ebsoregano in oregano
+11.go to snapshot select it click action->copy snapshot 
+12.give name and destination as oregano (us-west-2) click on copy snapshot
+13.agian select the snapshot actions->create volume from snapshot
+14.size will be same as 2 g just give availability zone of ebsOregano then create volume
+15.select newly created volume and attach it to ebsOregano select device name as /dev/xvf
+16.go to ebsOregano instance and connect to it
+17.execute following commands
+->sudo su
+->lsblk
+->mkdir /mnt/ce
+->mount /dev/xvdf /mnt/cse
+->cd /mnt/cse
+->ls
+
+exp-2 : EFS
+
+1.create two instances with ppk and default vpc and different subnets of different availability zones and create security group EFS-MID then ssh and nfs protolcol
+2.now connect instances with putty
+3. Run following commands
+->sudo su
+->mkdir efs
+->yum update -y
+->yum install -y amazon-efs-utils
+4.searh efs and create file system enter file name select default vpc click on create 
+5.click on file system we created scroll to network tab click on manage and assign the security groups EFS-MID to availability zones where the instances are created
+6.now click on attach copy the mount line
+7. if inactive restart sudo su copy paste the line both terrminals the cd efs for both
+8. 1st-> touch f1 int 2nd ls you will f1 here 
+
